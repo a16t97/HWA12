@@ -1,40 +1,44 @@
 package org.example.tests;
 
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 
 public class MainTests {
     @Test
     public void firstTest(){
-        System.out.println("I`m the first test");
+        System.out.println("MainTests::firstTest @" + Thread.currentThread().getName());
     }
 
     @Test
     public void secondTest(){
-        System.out.println("I`m the second test");
+        System.out.println("MainTests::secondTest @" + Thread.currentThread().getName());
     }
 
     @Test
     public void thirdTest(){
-        System.out.println("I`m the third test");
+        System.out.println("MainTests::thirdTest @" + Thread.currentThread().getName());
     }
 
     @BeforeMethod
     public void beforeMethod(){
-        System.out.println("MainTests::BeforeMethod");
+        System.out.println("MainTests::BeforeMethod @" + Thread.currentThread().getName());
     }
 
     @AfterMethod
     public void afterMethod(){
-        System.out.println("MainTests::AfterMethod");
+        System.out.println("MainTests::AfterMethod @" + Thread.currentThread().getName());
     }
 
     @BeforeTest
     public void beforeTest(){
-        System.out.println("MainTests::BeforeTest");
+        System.out.println("MainTests::BeforeTest @" + Thread.currentThread().getName());
     }
 
     @AfterTest
     public void afterTest(){
-        System.out.println("MainTests::AfterTest");
+        System.out.println("MainTests::AfterTest @" + Thread.currentThread().getName());
     }
 }
