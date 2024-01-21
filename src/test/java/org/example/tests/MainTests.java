@@ -7,17 +7,17 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class MainTests {
-    @Test
+    @Test (groups="unit3", dependsOnGroups = "unit1")
     public void firstTest(){
         System.out.println("MainTests::firstTest @" + Thread.currentThread().getName());
     }
 
-    @Test
+    @Test (groups = "unit1")
     public void secondTest(){
         System.out.println("MainTests::secondTest @" + Thread.currentThread().getName());
     }
 
-    @Test
+    @Test (groups="unit3", dependsOnGroups = "unit1")
     public void thirdTest(){
         System.out.println("MainTests::thirdTest @" + Thread.currentThread().getName());
     }

@@ -7,17 +7,17 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class AdditionalTests {
-    @Test
+    @Test (groups="unit1")
     public void aTest(){
         System.out.println("AdditionalTests::aTest @" + Thread.currentThread().getName());
     }
 
-    @Test
+    @Test (groups="unit2")
     public void bTest(){
         System.out.println("AdditionalTests::bTest @" + Thread.currentThread().getName());
     }
 
-    @Test
+    @Test (groups="unit3")
     public void cTest(){
         System.out.println("AdditionalTests::cTest @" + Thread.currentThread().getName());
     }

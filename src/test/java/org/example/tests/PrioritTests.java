@@ -7,17 +7,17 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class PrioritTests {
-    @Test
+    @Test (groups="unit1")
     public void oneTest(){
         System.out.println("PrioritTests::oneTest @" + Thread.currentThread().getName());
     }
 
-    @Test
+    @Test (groups="unit2")
     public void twoTest(){
         System.out.println("PrioritTests::twoTest @" + Thread.currentThread().getName());
     }
 
-    @Test
+    @Test (groups="unit3")
     public void threeTest(){
         System.out.println("PrioritTests::threeTest @" + Thread.currentThread().getName());
     }
