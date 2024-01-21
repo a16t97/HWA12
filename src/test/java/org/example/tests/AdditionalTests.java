@@ -2,7 +2,7 @@ package org.example.tests;
 
 import org.testng.annotations.*;
 
-public class MainTests {
+public class AdditionalTests {
     @Test
     public void firstTest(){
         System.out.println("I`m the first test");
@@ -20,21 +20,21 @@ public class MainTests {
 
     @BeforeMethod
     public void beforeMethod(){
-        System.out.println("MainTests::BeforeMethod");
+        System.out.println("AdditionalTests::BeforeMethod");
     }
 
     @AfterMethod
     public void afterMethod(){
-        System.out.println("MainTests::AfterMethod");
+        System.out.println("AdditionalTests::AfterMethod");
     }
 
     @BeforeTest
     public void beforeTest(){
-        System.out.println("MainTests::BeforeTest");
+        System.out.println("AdditionalTests::BeforeTest");
     }
 
     @AfterTest
     public void afterTest(){
-        System.out.println("MainTests::AfterTest");
+        System.out.println("AdditionalTests::AfterTest");
     }
 }
