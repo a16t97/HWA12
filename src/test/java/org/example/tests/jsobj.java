@@ -1,7 +1,10 @@
 package org.example.tests;
 
-import io.restassured.RestAssured;
-import io.restassured.response.Response;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 import org.json.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -10,22 +13,28 @@ import java.io.IOException;
 
 public class jsobj {
     final String api = "https://fakerestapi.azurewebsites.net/api/v1";
+    OkHttpClient client = new OkHttpClient.Builder().build();
 
     @Test
-    public void postUsers() {
+    public void testAddNewUser() throws IOException {
         final String endpointName = "/Users";
         String url = api + endpointName;
 
-        var json = new JSONObject();
+        JSONObject json = new JSONObject();
         json.put("id", 123);
-        json.put("userName", "user123");
-        json.put("password", "password123");
+        json.put("userName", "User123");
+        json.put("password", "Password123");
 
-        Response response = RestAssured.given()
-                .contentType("application/json")
-                .body(json.toString())
-                .post(url);
-        Assert.assertEquals(response.getStatusCode(), 200);
+        RequestBody requestBody = RequestBody.create(MediaType.parse("application/json"), json.toString());
+        Request request = new Request.Builder()
+                .url(url)
+                .post(requestBody)
+                .build();
+
+        try (Response response = client.newCall(request).execute()) {
+            Assert.assertEquals(response.code(), 200, "Status code should be 200 Created");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
-
