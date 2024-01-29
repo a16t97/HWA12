@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-public class jsobj {
+public class Jsobj {
     final String api = "https://fakerestapi.azurewebsites.net/api/v1";
     OkHttpClient client = new OkHttpClient.Builder().build();
 
