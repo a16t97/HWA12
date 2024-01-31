@@ -27,7 +27,7 @@
     <test name="HttpTests">
         <classes>
             <class name="org.example.tests.JacksonTests"/>
-            <class name="org.example.tests.JSONObject"/>
+            <class name="org.example.tests.JSONObj"/>
         </classes>
     </test>
 </suite>

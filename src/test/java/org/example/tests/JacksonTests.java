@@ -57,6 +57,6 @@ public class JacksonTests {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        System.out.println("JacksonTests::DELETE@" + Thread.currentThread().getName());
+        System.out.println("JacksonTests::DELETE @" + Thread.currentThread().getName());
     }
 }
