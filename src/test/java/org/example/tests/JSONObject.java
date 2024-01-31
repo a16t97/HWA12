@@ -5,13 +5,12 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-import org.json.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-public class Jsobj {
+public class JSONObject {
     final String api = "https://fakerestapi.azurewebsites.net/api/v1";
     OkHttpClient client = new OkHttpClient.Builder().build();
 
@@ -20,7 +19,7 @@ public class Jsobj {
         final String endpointName = "/Users";
         String url = api + endpointName;
 
-        JSONObject json = new JSONObject();
+        org.json.JSONObject json = new org.json.JSONObject();
         json.put("id", 123);
         json.put("userName", "User123");
         json.put("password", "Password123");
@@ -36,5 +35,6 @@ public class Jsobj {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        System.out.println("JSONObject::PUT@" + Thread.currentThread().getName());
     }
 }
