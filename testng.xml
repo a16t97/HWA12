@@ -24,4 +24,10 @@
             <class name="org.example.tests.PrioritTests"/>
         </classes>
     </test>
+    <test name="HttpTests">
+        <classes>
+            <class name="org.example.tests.JacksonTests"/>
+            <class name="org.example.tests.JSONObj"/>
+        </classes>
+    </test>
 </suite>

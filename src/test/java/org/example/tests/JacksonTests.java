@@ -33,12 +33,12 @@ public class JacksonTests {
             var mapper = new ObjectMapper();
             mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
             var users = mapper.readValue(response.body().string(), User[].class);
-            System.out.println(users);
             Assert.assertEquals(users.length, 10);
             Assert.assertEquals(users[3].getUserName(), "User 4");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        System.out.println("JacksonTests::GET @" + Thread.currentThread().getName());
     }
 
     @Test
@@ -57,5 +57,6 @@ public class JacksonTests {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        System.out.println("JacksonTests::DELETE @" + Thread.currentThread().getName());
     }
 }
