@@ -27,7 +27,12 @@
     <test name="HttpTests">
         <classes>
             <class name="org.example.tests.JacksonTests"/>
-            <class name="org.example.tests.JSONObj"/>
+            <class name="org.example.tests.JsonObject"/>
+        </classes>
+    </test>
+    <test name="WireMockTest">
+        <classes>
+            <class name="org.example.tests.WiremockTest"/>
         </classes>
     </test>
 </suite>
