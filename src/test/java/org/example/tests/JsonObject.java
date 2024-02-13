@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-public class JSONObj {
+public class JsonObject {
     final String api = "https://fakerestapi.azurewebsites.net/api/v1";
     OkHttpClient client = new OkHttpClient.Builder().build();
 
@@ -36,6 +36,6 @@ public class JSONObj {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        System.out.println("JSONObject::PUT @" + Thread.currentThread().getName());
+        System.out.println("JSONObject :: PUT @" + Thread.currentThread().getName());
     }
 }

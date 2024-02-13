@@ -42,3 +42,4 @@ public class PrioritTests {
         System.out.println("PrioritTests::AfterTest @" + Thread.currentThread().getName());
     }
 }
+
