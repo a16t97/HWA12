@@ -50,7 +50,8 @@ public class WiremockTests {
         try (var response = client.newCall(request).execute()) {
             var code = response.code();
             Assert.assertEquals(code, 523, "We expected 523, but received " + code);
-            Assert.assertEquals(response.receivedResponseAtMillis()-response.sentRequestAtMillis(), 4522, "Expected result != Fact");
+//            Assert.assertEquals(response.receivedResponseAtMillis()-response.sentRequestAtMillis(), 4522, "Expected result != Fact");
+            Assert.assertTrue(response.receivedResponseAtMillis()-response.sentRequestAtMillis()>=4522, "Expected result != Fact");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
