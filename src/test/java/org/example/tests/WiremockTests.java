@@ -44,14 +44,17 @@ public class WiremockTests {
 
     @Test
     public void checkExample() {
+
         var request = new Request.Builder()
                 .url("http://localhost:" + port + "/example")
                 .build();
         try (var response = client.newCall(request).execute()) {
             var code = response.code();
+            var length = response.receivedResponseAtMillis()-response.sentRequestAtMillis();
             Assert.assertEquals(code, 523, "We expected 523, but received " + code);
 //            Assert.assertEquals(response.receivedResponseAtMillis()-response.sentRequestAtMillis(), 4522, "Expected result != Fact");
-            Assert.assertTrue(response.receivedResponseAtMillis()-response.sentRequestAtMillis()>=4522, "Expected result != Fact");
+            // Assert.assertTrue(response.receivedResponseAtMillis()-response.sentRequestAtMillis()>=4522, "Expected result != Fact");
+            Assert.assertTrue ( length > 4522 && length < (int)4522*1.2, "Expected result != Fact" );
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
